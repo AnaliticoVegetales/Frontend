@@ -1,6 +1,6 @@
 import React from 'react'
 import Table from '../../components/tableproduct'
-const Clientes = () => {
+const Producto = () => {
     return (
         <div>
             <Table/>
@@ -8,4 +8,4 @@ const Clientes = () => {
     )
 }
 
-export default Clientes
+export default Producto
