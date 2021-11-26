@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../media/Logo.png';
+import logo from '../media/logo.png';
 
 import { useAuth0 } from "@auth0/auth0-react";
 
