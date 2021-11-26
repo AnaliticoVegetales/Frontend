@@ -5,7 +5,6 @@ import { Auth0Provider } from "@auth0/auth0-react";
 //Layouts
 import PrivateLayout from './layouts/PrivateLayout';
 import PublicLayout from './layouts/PublicLayout';
-import AuthLayout from './layouts/AuthLayout';
 
 //Pages
 import Index from './pages/index';
@@ -22,18 +21,13 @@ import './styles/styles.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { UserContext } from "context/userContext";
 
-
-
-
-
 function App() {
   const [userData, setUserData] = useState({});
   return (
     <Auth0Provider
-      domain="ezequiellr.us.auth0.com"
-      clientId="0b1BbovaR2Sm4kaPTWwnNgr13Fayd0fV"
-      redirectUri="https://focus-tech.herokuapp.com/admin"
-      audience='autenticacion-focus-tech'>
+      domain='analitico-vegetales.us.auth0.com'
+      clientId='IZkpsqvoTM4kxJM9010Zc8IIh4HdO3Jq'
+      redirectUri={window.location.origin}>
 
       <div className='App'>
         

@@ -47,9 +47,6 @@ const RegistroPedido = () => {
         draggable
         pauseOnHover
       />
-
-   
-
       <button  type = "button" onClick={()=>setMostrarTabla(!mostrarTabla)} className="sm:auto mx-auto ml-8 whitespace-nowrap px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-900 hover:bg-indigo-700">
       {textoBoton}
 
@@ -63,7 +60,7 @@ const RegistroPedido = () => {
 const TablaPedidos = ({ }) => {
 
   return(
-    <div>
+    <div className="Maincontainer ">
         <input 
         type="text" 
         placeholder="Buscar" 
@@ -72,7 +69,7 @@ const TablaPedidos = ({ }) => {
         onChange={(e) => setBusqueda(e.target.value)}
         />
 
-        <table className="min-w-full divide-y divide-gray-200">
+        <table className="min-w-full divide-y divide-gray-200 max-w-7xl mx-auto px-4 py-6 sm:px-6">
 
           <thead className="bg-gray-50">
           <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">

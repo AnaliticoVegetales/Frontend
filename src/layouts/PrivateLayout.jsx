@@ -1,11 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 import Sidebar from '../components/Sidebar';
-// import PrivateRoute from 'componets/PrivateRoute';
-
+import PrivateRoute from '../components/PrivateRoute';
 const PrivateLayout = () => {
+
   return (
-    // <PrivateRoute>
+     <PrivateRoute>
 
       <div className='flex w-screen h-screen'>
         <div className='flex flex-nowrap h-full w-full'>
@@ -19,7 +19,7 @@ const PrivateLayout = () => {
         </div>
       </div>
 
-    // </PrivateRoute> 
+     </PrivateRoute> 
   );
 };
 
