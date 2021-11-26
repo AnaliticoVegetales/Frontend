@@ -12,7 +12,7 @@ const NavBar = () => {
     <nav className="flex items-center justify-between flex-wrap fondo1 font-bold w-100">
                   
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <img className="fill-current ml-2 w-6 items-center" src={logo} alt="logo" />
+        <img className="fill-current ml-2 w-10 items-center" src={logo} alt="logo" />
         <span className="fuente text-xl p-2 m-2 tracking-tight">Analitico Vegetales</span>
       </div>
       
