@@ -19,20 +19,17 @@ export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
   setEjecutarConsulta(false);
 };
 
-export const obtenerUsuarios = async (successCallback,errorCallback) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/usuarios/' ,
-  headers : { 
-    Authorization: getToken(),
-  }, };
+export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/usuarios/' };
   await axios
     .request(options)
-    .then(
-      successCallback
-  
-    )
-    .catch(
-     errorCallback
-    );
+    .then(function (response) {
+      setUsuarios(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+  setEjecutarConsulta(false);
 };
 
 export const obtenerDatosUsuario = async (successCallback, errorCallback) => {
@@ -48,3 +45,20 @@ export const obtenerDatosUsuario = async (successCallback, errorCallback) => {
 };
 
 
+export const crearUsuario = async(data,successCallback,errorCallback)=>{
+  const options = {
+    method: 'POST',
+    url: 'http://localhost:5000/usuarios/',
+    headers: {  Authorization: getToken(),'Content-Type': 'application/json',
+   },data,
+  }
+  await axios
+    .request(options)
+    .then(
+      successCallback
+    )
+    .catch(
+     errorCallback
+    );
+
+};

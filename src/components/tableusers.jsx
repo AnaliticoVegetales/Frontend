@@ -57,12 +57,6 @@ import {Dialog, Tooltip} from '@material-ui/core'
         draggable
         pauseOnHover
       />
-
-   
-
-      <button  type = "button" onClick={()=>setMostrarTabla(!mostrarTabla)} className="sm:auto mx-auto ml-8 whitespace-nowrap px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-900 hover:bg-indigo-700">
-      {textoBoton}
-      </button>
     </div>
   )
 }
@@ -77,9 +71,9 @@ import {Dialog, Tooltip} from '@material-ui/core'
             const [openDialog, setOpenDialog] = useState(false);
             const [infoNuevoUsuario, setInfoNuevoUsuario] = useState({
               idUsuario:usuario.idUsuario,
-              nombreCl:usuario.nombreCl,
-              Estado : usuario.Estado,
-              correo: usuario.correo,
+              nombreCl:usuario.name,
+              estado : usuario.estado,
+              correo: usuario.email,
               rol: usuario.rol
             });
           
@@ -160,7 +154,7 @@ import {Dialog, Tooltip} from '@material-ui/core'
                         className = 'bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
                         name='Estado'
                         value={infoNuevoUsuario.Estado}
-                        onChange={(e) => setInfoNuevoUsuario({ ...infoNuevoUsuario, Estado: e.target.value })}
+                        onChange={(e) => setInfoNuevoUsuario({ ...infoNuevoUsuario, estado: e.target.value })}
                         >
 
                         <option disabled value={0}>Seleccione una opción</option>
@@ -192,14 +186,14 @@ import {Dialog, Tooltip} from '@material-ui/core'
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
-                            <img className="h-10 w-10 rounded-full" alt=""/>
+                            <img className="h-10 w-10 rounded-full" alt="" src = {usuario.picture}/>
                           </div>
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900">
-                              {usuario.nombreCl}
+                              {usuario.name}
                             </div>
                               <div className="text-sm text-gray-500">
-                                {usuario.correo}
+                                {usuario.email}
                               </div>
                           </div>
                         </div>
@@ -210,10 +204,10 @@ import {Dialog, Tooltip} from '@material-ui/core'
                       </td>
           
                       <td className="px-6 py-4 whitespace-nowrap">
-                          { usuario.Estado === "Activo" ? <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            {usuario.Estado}
+                          { usuario.estado === "Activo" ? <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                            {usuario.estado}
                               </span> : <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                              {usuario.Estado}
+                              {usuario.estado}
                               </span>
                               }
                       </td>

@@ -17,6 +17,7 @@ const RegistroP = () => {
     console.log('consulta', ejecutarConsulta);
     if (ejecutarConsulta) {
       obtenerProductos(setProductos, setEjecutarConsulta);
+      console.log(productos);
     }
   }, [ejecutarConsulta]);
 
@@ -299,9 +300,7 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
   }, [busqueda, listaProductos]);
 
 
-  /*useEffect(()=>{
-    console.log("listado de ventas", listaVentas)
-  },[listaVentas])*/
+
 
   return(
     <div>
