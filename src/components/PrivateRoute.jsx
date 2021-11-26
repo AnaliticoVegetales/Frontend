@@ -1,6 +1,8 @@
 
 import { useAuth0 } from "@auth0/auth0-react";
 import ReactLoading from 'react-loading';
+import {useEffect} from 'react';
+import {obtenerDatosUsuario} from '../utils/api'
 
 import NavAuth from './NavbarAuth';
 import Footer from './Footer';
@@ -13,12 +15,12 @@ const PrivateRoute = ({ children }) => {
     const { setUserData } = useUser();
     const { user } = useAuth0(); 
   
-    /*useEffect(() => {
+    useEffect(() => {
       const fetchAuth0Token = async () => {
         
         //Pedir Toke a Auth0
         const accessToken = await getAccessTokenSilently({
-          audience: `autenticacion-proyectorio`,
+          audience: `autenticacion-analitico-vegetales`,
         });
         //Recibir Token de Auth0
         localStorage.setItem('token', accessToken);
@@ -37,7 +39,7 @@ const PrivateRoute = ({ children }) => {
       if (isAuthenticated) {
         fetchAuth0Token();
       }
-    }, [isAuthenticated, getAccessTokenSilently]);*/
+    }, [isAuthenticated, getAccessTokenSilently]);
   
     if (isLoading) return <div><h1 className='text-3xl font-extrabold'>Cargando...</h1><ReactLoading type='spin' color='#11172d' height={467} width={175} /></div>;
   

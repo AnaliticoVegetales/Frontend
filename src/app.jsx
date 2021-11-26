@@ -29,7 +29,8 @@ function App() {
     <Auth0Provider
       domain='analitico-vegetales.us.auth0.com'
       clientId='IZkpsqvoTM4kxJM9010Zc8IIh4HdO3Jq'
-      redirectUri="http://localhost:3000/admin">
+      redirectUri="http://localhost:3000/admin"
+      audience='autenticacion-analitico-vegetales'>
 
       <div className='App'>
         
