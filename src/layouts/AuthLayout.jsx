@@ -1,18 +1,15 @@
 import React from 'react';
-import { Outlet } from 'react-router';
-import NavAuth from '../componets/NavbarAuth';
-import Footer from '../componets/Footer';
+import NavAuth from '../components/NavbarAuth';
+import Footer from '../components/Footer'
+import '../styles/styles.css'
 
-const AuthLayout = () => {
+
+const AuthLayout = ({ children }) => {
   return (
     <div className='flex flex-col justify-between h-screen'>
-      
       <NavAuth />
-        <main className='h-full w-full overflow-auto bg-black'>
-          <Outlet/>
-        </main>
-      <Footer/>
-
+      <main className='h-full w-full overflow-y-scroll bg-black'>{children}</main>
+      <Footer />
     </div>
   );
 };

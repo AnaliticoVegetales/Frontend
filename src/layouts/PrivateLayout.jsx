@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router';
-import Sidebar from '../componets/Sidebar';
+import Sidebar from '../components/Sidebar';
 // import PrivateRoute from 'componets/PrivateRoute';
 
 const PrivateLayout = () => {

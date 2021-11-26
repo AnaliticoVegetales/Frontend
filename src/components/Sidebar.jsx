@@ -9,9 +9,10 @@ const Sidebar = () => {
     <div className="min-h-screen flex flex-row fondo1  text-gray-300">
       <div className="flex flex-col w-64 overflow-hidden">
         <div className="flex flex-col items-center justify-center h-20 ">
-          <div ><img className="px-2 pt-40 mt-40 " src={Logo} alt="logo" width="100" /></div>
+          <div ><img className="px-2 pt-40 mt-40 " src={Logo} alt="logo" width="120" /></div>
           
-          <h1 className="fuente text-xl uppercase text-white text-bold shadow-md mb-40 ">PROYECTORIO</h1>
+          <h1 className="text-xl  text-gray-200 font-bold mb-40 ">Analítico Vegetales</h1>
+          
         </div>
         <ul className="flex flex-col py-10 mt-40 items-center content-center">
           <li>
@@ -24,44 +25,35 @@ const Sidebar = () => {
           </li>
           <li>
             {/* <PrivateComponent roleList={['Administrador']}> */}
-              <Link to='/admin/Usuarios' >
+              <Link to='/admin/clientes' >
                 <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-300 hover:text-gray-500">
                   <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-200"><i className="fas fa-users"></i></span>
-                  <span className="text-sm font-medium">Usuarios</span>
+                  <span className="text-sm font-medium">Clientes</span>
                 </a>
               </Link>
               {/* </PrivateComponent>   */}
           </li>
           <li>
           {/* <PrivateComponent roleList={['Administrador','Lider','Estudiante']}>   */}
-            <Link to='/admin/Proyectos'>
+            <Link to='/admin/empleados'>
                 <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-300 hover:text-gray-500">
-                  <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-200"><i className="fas fa-book"></i></span>
-                  <span className="text-sm font-medium">Proyectos</span>
+                  <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-200"><i className="fas fa-user-tie"></i></span>
+                  <span className="text-sm font-medium">Empleados</span>
                 </a>
             </Link>
           {/* </PrivateComponent>     */}
           </li>
           <li>
             {/* <PrivateComponent roleList={['Administrador','Lider','Estudiante']}> */} 
-              <Link to='/admin/Inscripciones'>
+              <Link to='/admin'>
                 <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-300 hover:text-gray-500">
-                  <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-200"><i className="fas fa-user-plus"></i></span>
-                  <span className="text-sm font-medium">Inscripciones</span>
+                  <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-200"><i className="fa-shipping-fast"></i></span>
+                  <span className="text-sm font-medium">Pedidos</span>
                 </a>
               </Link>
               {/* </PrivateComponent> */}
           </li> 
-          <li>
-            {/* <PrivateComponent roleList={['Administrador','Lider','Estudiante']}> */} 
-              <Link to='/admin/Avances'>
-                <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-300 hover:text-gray-500">
-                  <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-200"><i className="fas fa-tasks"></i></span>
-                  <span className="text-sm font-medium">Avances</span>
-                </a>
-              </Link>
-              {/* </PrivateComponent> */}
-          </li> 
+          
           
           
           
