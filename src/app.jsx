@@ -11,7 +11,9 @@ import Index from './pages/index';
 import Perfil from './pages/admin/Perfil';
 import Clientes from './pages/admin/Clientes';
 import Empleados from './pages/admin/Empleados';
+import Usuarios from './pages/admin/Usuarios';
 import Error404 from "pages/Error404";
+import Productos from './pages/admin/Producto';
 
 
 //Styles
@@ -45,6 +47,9 @@ function App() {
             <Route path='' element={<Perfil/>}/>
             <Route path='clientes' element={<Clientes/>}/>
             <Route path='empleados' element={<Empleados/>}/>
+            <Route path='usuarios' element={<Usuarios/>}/>
+            <Route path='productos' element={<Productos/>}/>
+
           </Route>
 
           <Route path='*' element={<Error404/>}/>
