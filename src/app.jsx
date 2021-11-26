@@ -29,6 +29,7 @@ import { UserContext } from "context/userContext";
 function App() {
   const [userData, setUserData] = useState({});
   return (
+<<<<<<< HEAD
   
 
       <div className='App'>
@@ -58,6 +59,11 @@ function App() {
 
       </div>
 
+=======
+      
+   <div><h1>Hola mundo</h1></div>
+    
+>>>>>>> camiloV1
   );
 }
 

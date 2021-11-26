@@ -15,10 +15,18 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-loading": "^2.0.3",
+<<<<<<< HEAD
     "react-router-dom": "^6.0.2",
     "react-scripts": "^4.0.3",
     "react-toastify": "^8.0.3",
     "web-vitals": "^1.0.1"
+=======
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.3",
+    "react-toastify": "^8.1.0",
+    "web-vitals": "^1.0.1",
+    "yarn": "^1.22.17"
+>>>>>>> camiloV1
   },
   "scripts": {
     "start": "craco start",
