@@ -13,9 +13,9 @@
 	font-family: 'Antonio', sans-serif;
 }
 
-/* .fondo-cover {
-	background-image: url("../media/cover2.jpeg");
-} */
+.fondo-cover {
+	background-image: url("../media/cover.jpeg");
+}
 
 .altura-cover{
 	min-height: 75vh;

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../media/logo.png';
+import logo from '../media/Logo.png';
 
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -13,7 +13,7 @@ const NavBar = () => {
                   
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <img className="fill-current ml-2 w-10 items-center" src={logo} alt="logo" />
-        <span className="fuente text-xl p-2 m-2 tracking-tight">Analitico Vegetales</span>
+        <span className="fuente text-xl p-2 m-2 tracking-tight">Analítico Vegetales</span>
       </div>
       
       <div id='menu' className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
