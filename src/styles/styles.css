@@ -4,14 +4,23 @@
 
 
 .fondo1{
-	background-color: #0b184b;
+	background-color: #043343;
 	opacity: 0.91;
 	
 }
 
+<<<<<<< HEAD
 .fondo-cover {
 	background-image: url();
+=======
+.fuente{
+	font-family: 'Antonio', sans-serif;
+>>>>>>> e19c09fee8a2fde46a29d8ea39ec86c9f9ed239b
 }
+
+/* .fondo-cover {
+	background-image: url("../media/cover2.jpeg");
+} */
 
 .altura-cover{
 	min-height: 75vh;

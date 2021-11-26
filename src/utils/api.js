@@ -1,18 +1,16 @@
 import axios from 'axios';
 
-const baseURL = "http://localhost:5000";
-// const baseURL = 'https://.herokuapp.com';
+// const baseURL = "http://localhost:5000";
+const baseURL = 'https://focus-tech.herokuapp.com';
 
 const getToken = () => {
   return `Bearer ${localStorage.getItem('token')}`;
 };
 
-// CRUD PARA PROYECTOS
-
-export const obtenerProyectos = async (successCallback, errorCallback) => {
+export const obtenerProductos = async (successCallback, errorCallback) => {
   const options = {
     method: 'GET',
-    url: `${baseURL}/proyectos/`,
+    url: `${baseURL}/productos/`,
     headers: {
       Authorization: getToken(),
     },
@@ -20,27 +18,27 @@ export const obtenerProyectos = async (successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const crearProyecto = async (data, successCallback, errorCallback) => {
+export const crearProducto = async (data, successCallback, errorCallback) => {
   const options = {
     method: 'POST',
-    url: `${baseURL}/proyectos/`,
+    url: `${baseURL}/productos/`,
     headers: { 'Content-Type': 'application/json', Authorization: getToken() },
     data,
   };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const editarProyecto = async (id, data, successCallback, errorCallback) => {
+export const editarProducto = async (id, data, successCallback, errorCallback) => {
   const options = {
     method: 'PATCH',
-    url: `${baseURL}/proyectos/${id}/`,
+    url: `${baseURL}/productos/${id}/`,
     headers: { 'Content-Type': 'application/json', Authorization: getToken() },
     data,
   };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const eliminarProyecto = async (id, successCallback, errorCallback) => {
+export const eliminarProducto = async (id, successCallback, errorCallback) => {
   const options = {
     method: 'DELETE',
     url: `${baseURL}/productos/${id}/`,
@@ -48,7 +46,6 @@ export const eliminarProyecto = async (id, successCallback, errorCallback) => {
   };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
-
 
 // CRUD PARA USUARIOS
 
@@ -85,3 +82,49 @@ export const editarUsuario = async (id, data, successCallback, errorCallback) =>
   };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
+
+// CRUD DE VENTAS
+
+export const obtenerVentas = async (successCallback, errorCallback) => {
+  const options = { 
+    method: 'GET',
+    url: `${baseURL}/ventas`,
+    headers: {
+      Authorization: getToken(),
+    },
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+  
+};
+
+export const crearVenta = async (data, successCallback, errorCallback) => {
+  const options = {
+    method: 'POST',
+    url: `${baseURL}/ventas/`,
+    headers: { 'Content-Type': 'application/json', Authorization: getToken() },
+    data,
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const editarVenta = async (id, data, successCallback, errorCallback) => {
+  const options = {
+    method: 'PATCH',
+    url: `${baseURL}/ventas/${id}/`,
+    headers: { 'Content-Type': 'application/json', Authorization: getToken() },
+    data,
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const eliminarVenta = async (id, successCallback, errorCallback) => {
+  const options = {
+    method: 'DELETE',
+    url: `${baseURL}/ventas/${id}/`,
+    headers: { 'Content-Type': 'application/json', Authorization: getToken() },
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+
+

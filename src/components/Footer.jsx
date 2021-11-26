@@ -9,8 +9,8 @@ const Footer = () => {
               href="https://www.misiontic2022.gov.co/portal/" 
               className="mx-11 transform hover:translate-y-1 transition-transform ease-in duration-200">
                 <img class="fill-current ml-2 w-14 items-center " src={MinTic} alt="MinTic logo" /></a>
-            <a href="https://github.com/PROYECTORIO" className="transform hover:translate-y-1 transition-transform ease-in duration-200 mx-11"><i class="fab fa-github w-6"></i>Proyecto Ciclo 4.</a>
-            <a href="https://github.com/Equipo-Nova-Agil" className="transform hover:translate-y-1 transition-transform ease-in duration-200 mx-11 font-bold">&copy; NOVA ÁGIL</a>
+            <a href="https://github.com/AnaliticoVegetales/" className="transform hover:translate-y-1 transition-transform ease-in duration-200 mx-11"><i class="fab fa-github w-6"></i>Equipo 5.</a>
+            <a href="https://script.google.com/macros/s/AKfycbw1KPf0dKWupqnMXCegOlkVoaC-FHpuKOIuYasDpx1wr0iaHXO6oSvWHJfoDmn9H5c/exec" className="transform hover:translate-y-1 transition-transform ease-in duration-200 mx-11 font-bold">&copy; Hackathon 2021</a>
         </div>
     </footer>
   </div>;
