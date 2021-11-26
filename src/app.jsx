@@ -8,11 +8,11 @@ import PublicLayout from './layouts/PublicLayout';
 import AuthLayout from './layouts/AuthLayout';
 
 //Pages
-import Index from './pages/Index';
+import Index from './pages/index';
 import Perfil from './pages/admin/Perfil';
 import Clientes from './pages/admin/Clientes';
 import Empleados from './pages/admin/Empleados';
-import Error404 from "pages/auth/Error404";
+import Error404 from "pages/Error404";
 
 
 //Styles
