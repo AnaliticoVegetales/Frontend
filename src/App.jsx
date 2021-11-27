@@ -8,7 +8,7 @@ import PublicLayout from './layouts/PublicLayout';
 import AuthLayout from './layouts/AuthLayout';
 
 //Pages
-import Index from './pages/Index';
+import Index from './pages/index';
 import Perfil from './pages/admin/Perfil';
 import Productos from './pages/admin/Productos';
 import Ventas from './pages/admin/Pedidos';

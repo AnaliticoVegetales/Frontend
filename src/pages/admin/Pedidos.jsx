@@ -6,13 +6,12 @@ import { obtenerProductos } from 'utils/api';
 import { obtenerUsuarios } from 'utils/api';
 import PrivateComponent from 'components/PrivateComponent';
 
-
 const Ventas = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [ventas, setVentas] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Agregar Nueva Venta');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
-  
+  const [mostrarRastreo, setMostrarRastreo] = useState(false);
   
   
   useEffect(() => {
@@ -41,10 +40,10 @@ const Ventas = () => {
 
   useEffect(() => {
     if (mostrarTabla) {
-      setTextoBoton('Agregar Nueva Venta');
+      setTextoBoton('Agregar Nuevo Pedido');
       
     } else {
-      setTextoBoton('Mostrar Todos Las Ventas');
+      setTextoBoton('Mostrar Todos Los Pedidos');
       
     }
   }, [mostrarTabla]);
@@ -52,7 +51,7 @@ const Ventas = () => {
     <div className='flex h-full w-full flex-col items-center justify-start p-8'>
       <div className='flex flex-col'>
         <h2 className='text-3xl pt-12 pb-8 font-extrabold text-gray-800'>
-          Administración de Ventas
+          Administración de Pedidos
         </h2>
         <button
           onClick={() => {
@@ -62,16 +61,20 @@ const Ventas = () => {
         >
           {textoBoton}
         </button>
+        
       </div>
+      
       {mostrarTabla ? (
         <TablaVentas listaVentas={ventas} setEjecutarConsulta={setEjecutarConsulta} />
-      ) : (
+      ) : mostrarRastreo ?(<Rastreo/>):
+       ( 
         <FormularioCreacionVentas
           setMostrarTabla={setMostrarTabla}
           listaVentas={ventas}
           setVentas={setVentas}
         />
       )}
+      
       <ToastContainer position='bottom-center' autoClose={3000} />
     </div>
   );
@@ -178,7 +181,11 @@ const TablaVentas = ({listaVentas, setEjecutarConsulta}) => {
               return <FilaVentas 
                 key={nanoid()} 
                 venta={venta}
-                setEjecutarConsulta={setEjecutarConsulta}/>;
+                setEjecutarConsulta={setEjecutarConsulta}
+                setMostrarTabla
+                setMostrarRastreo
+                mostrarTabla
+                mostrarRastreo/>;
             })}
           </tbody>
         </table>
@@ -190,7 +197,7 @@ const TablaVentas = ({listaVentas, setEjecutarConsulta}) => {
   );
 };
 
-const FilaVentas = ({venta, setEjecutarConsulta})  => {
+const FilaVentas = ({venta, setEjecutarConsulta,setMostrarTabla,setMostrarRastreo,mostrarTabla,mostrarRastreo})  => {
   const [edit, setEdit] = useState(false)
   const [usuarios, setUsuarios] = useState([]);
   const [productos, setProductos] = useState([]);
@@ -246,7 +253,6 @@ const FilaVentas = ({venta, setEjecutarConsulta})  => {
   
 
   const actualizarVenta = async () => {
-    //enviar la info al backend
 
     await editarVenta(
       venta._id,
@@ -446,6 +452,14 @@ const FilaVentas = ({venta, setEjecutarConsulta})  => {
               </>
             ):(
               <>
+              <i
+                onClick={() => {
+                setMostrarTabla(!mostrarTabla);
+                setMostrarRastreo(!mostrarRastreo);
+              }}
+              className={"fas fa-map-marked-alt text-sm"}
+            >
+            </i>
                 <i
                   onClick={() => setEdit(!edit)}
                   className="fas fa-edit hover:text-yellow-600"/>
@@ -538,12 +552,11 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
   }; 
 
   return (
-    <div className='flex flex-col items-center justify-center'>
+    <div className='flex flex-col items-center'>
       <h2 className='text-2xl font-extrabold pb-4 text-gray-800'>Nueva Venta</h2>
-      <form ref={form} onSubmit={submitForm} className='flex flex-col justify-center text-center pb-10'>
-      
-        <label className='flex flex-col py-2 text-gray-800' htmlFor='fecha'>
-          Fecha de Venta
+      <form ref={form} onSubmit={submitForm} className=''>
+      <label className='flex flex-col py-2 text-gray-800' htmlFor='fecha'>
+          Fecha del pedido
           <input
             name='fecha'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2 '
@@ -551,6 +564,8 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
             placeholder='Ej: dd/mm/aaaa'
             required/>
         </label>
+      <div className= "flex flex-row">
+     
         
         <label className='flex flex-col py-2 text-gray-800' htmlFor='producto'>
          Producto
@@ -572,8 +587,7 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
            })}
            </select>
          </label>
-
-        <label className='flex flex-col py-2 text-gray-800' htmlFor='cantidad'>    
+         <label className='flex flex-col py-2 text-gray-800' htmlFor='cantidad'>    
           Cantidad
           <input
             name='cantidad'
@@ -584,7 +598,7 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
             placeholder='Ej: 2'
             required/>
         </label>
-
+        
         <label className='flex flex-col py-2 text-gray-800' htmlFor='unidad'>    
           Valor Unitario
           <input
@@ -596,6 +610,11 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
             placeholder='Ej: 350'
             required/>
         </label>
+
+      </div>
+      
+
+     
 
         <label className='flex flex-col py-2 text-gray-800' htmlFor='cliente'>
           Cliente
@@ -630,7 +649,7 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
         </label>
 
         <label className='flex flex-col py-2 text-gray-800' htmlFor='estado'>
-          Estado de la Venta
+          Estado del pedido
           <select
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             name='estado'
@@ -668,6 +687,191 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
   );
 };
 
+const Rastreo = () => {
+  const [mostrarMapa, setMostrarMapa] = useState(false);
+  return (
+    <div class="w-11/12 min-h-screen flex justify">
+      <div class="w-full bg-white rounded-lg shadow-sm p-8 mx-64">
+        <h1 class="font-extrabold tracking-wider text-center">Pedido #</h1>
+
+        <div class="flex flex-col mt-5 gap-7 text-sm">
+          <div class="bg-indigo-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
+            <div class="flex justify-end items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-indigo-500"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <div>
+                <p class="text-gray-700 font-bold tracking-wider">Creado</p>
+                <div>
+                  <div className="flex justify-start items-center gap-2">
+                    <p class="text-gray-400 text-sm"> Fecha: </p>
+                    <p class="text-gray-400 text-sm"> 26/11/2021 </p>
+                  </div>
+                  <div className="flex justify-start items-center gap-2">
+                    <p className="text-gray-400 text-sm"> Hora: </p>
+                    <p class="text-gray-400 text-sm"> 16:52</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="text-gray-700 font-bold tracking-wider">Encargado</p>
+              <p class="text-gray-400 text-sm">
+                {" "}
+                David Camilo Serrato Trujillo
+              </p>
+            </div>
+
+            <span class="font-bold text-indigo-500 text-3xl mr-3">
+              <i className="fas fa-hammer"></i>
+            </span>
+          </div>
+          <div class="bg-yellow-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
+            <div class="flex justify-start items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-yellow-500"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <div>
+                <p class="text-gray-700 font-bold tracking-wider">Enviado - En curso</p>
+                <div className="flex justify-start items-center gap-2">
+                  <p class="text-gray-400 text-sm"> Fecha: </p>
+                  <p class="text-gray-400 text-sm"> 26/11/2021 </p>
+                </div>
+                <div className="flex justify-start items-center gap-2">
+                  <p className="text-gray-400 text-sm"> Hora: </p>
+                  <p class="text-gray-400 text-sm"> 16:52</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="text-gray-700 font-bold tracking-wider">Encargado</p>
+              <p class="text-gray-400 text-sm">
+                {" "}
+                David Camilo Serrato Trujillo
+              </p>
+            </div>
+            <span className="font-bold text-yellow-500 text-3xl mr-3">
+              <i className="fas fa-sync-alt"></i>
+            </span>
+          </div>
+          <Rechazado/>
+            <Enviado/>
+          
+        </div>
+        <div className="flex justify-end items-center mt-8 mr-3">
+          <span class="font-bold text-gray-400 height text-4xl hover:text-gray-500 hover:text-4xl">
+          <i
+                onClick={() => {
+                setMostrarMapa(!mostrarMapa);
+              }}
+              className={"fas fa-map-marked-alt text-sm"}
+            >
+            </i>
+          </span>
+        </div>
+        
+      </div>
+    </div>
+  );
+};
+
+const Enviado = () => {
+  return (
+    <div className="bg-green-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
+      <div className="flex justify-start items-center gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8 text-green-500"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+        <div>
+          <p class="text-gray-700 font-bold tracking-wider">Recibido</p>
+          <div className="flex justify-start items-center gap-2">
+            <p class="text-gray-400 text-sm"> Fecha: </p>
+            <p class="text-gray-400 text-sm"> 26/11/2021 </p>
+          </div>
+          <div className="flex justify-start items-center gap-2">
+            <p className="text-gray-400 text-sm"> Hora: </p>
+            <p class="text-gray-400 text-sm"> 16:52</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="text-gray-700 font-bold tracking-wider">Encargado</p>
+        <p class="text-gray-400 text-sm"> David Camilo Serrato Trujillo</p>
+      </div>
+      <span class="font-bold text-green-500 text-3xl mr-3">
+        <i className="fas fa-clipboard-check"></i>
+      </span>
+    </div>
+  );
+};
+const Rechazado = () => {
+    return (
+        <div class="bg-pink-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
+            <div class="flex justify-start items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-pink-500"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <div>
+                <p class="text-gray-700 font-bold tracking-wider">Devuelto</p>
+                <div className="flex justify-start items-center gap-2">
+                  <p class="text-gray-400 text-sm"> Fecha: </p>
+                  <p class="text-gray-400 text-sm"> 26/11/2021 </p>
+                </div>
+                <div className="flex justify-start items-center gap-2">
+                  <p className="text-gray-400 text-sm"> Hora: </p>
+                  <p class="text-gray-400 text-sm"> 16:52</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="text-gray-700 font-bold tracking-wider">Encargado</p>
+              <p class="text-gray-400 text-sm">
+                {" "}
+                David Camilo Serrato Trujillo
+              </p>
+            </div>
+            <span class="font-bold text-pink-500 text-3xl mr-3">
+              <i className="fas fa-times"></i>
+            </span>
+            
+          </div>
+    );}
 
 
 export default Ventas;
