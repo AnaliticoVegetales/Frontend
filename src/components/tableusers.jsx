@@ -293,6 +293,7 @@ import {Dialog, Tooltip} from '@material-ui/core'
           
             return(
               <div>
+              <div>
                   <input 
                   type="text" 
                   placeholder="Buscar" 
@@ -338,10 +339,10 @@ import {Dialog, Tooltip} from '@material-ui/core'
           
           
                     </table>
-          
+                      
           
               </div>
-          
+         </div>
           
            
             )

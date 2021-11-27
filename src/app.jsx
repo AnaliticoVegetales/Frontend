@@ -14,7 +14,7 @@ import Empleados from './pages/admin/Empleados';
 import Usuarios from './pages/admin/Usuarios';
 import Error404 from "pages/Error404";
 import Productos from './pages/admin/Producto';
-
+import Envio from './pages/Envio';
 
 //Styles
 import './styles/styles.css'
@@ -50,7 +50,7 @@ function App() {
             <Route path='empleados' element={<Empleados/>}/>
             <Route path='usuarios' element={<Usuarios/>}/>
             <Route path='productos' element={<Productos/>}/>
-
+            <Route path='envio' element={<Envio/>}/>
           </Route>
 
           <Route path='*' element={<Error404/>}/>
