@@ -50,7 +50,7 @@ const Productos = () => {
         <h2 className='text-3xl pt-12 pb-8 font-extrabold fuenteColor'>
           Administración de Productos
         </h2>
-        <PrivateComponent roleList={['Administrador']}>
+        {/* <PrivateComponent roleList={['Administrador']}> */}
         <button
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
@@ -58,7 +58,7 @@ const Productos = () => {
           className={`shadow-md fondo1 text-gray-300 font-bold p-2 rounded m-6  self-center`}>
           {textoBoton}
         </button>
-        </PrivateComponent>
+        {/* </PrivateComponent> */}
       </div>
       {mostrarTabla ? (
         <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta} />
@@ -355,6 +355,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
             </option>
             <option>Disponible</option>
             <option>No Disponible</option>
+            
           </select>
         </label>
         <button

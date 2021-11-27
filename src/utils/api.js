@@ -6,6 +6,9 @@ const getToken = () => {
   return `Bearer ${localStorage.getItem('token')}`;
 };
 
+
+
+// CRUD PRODUCTOS
 export const obtenerProductos = async (successCallback, errorCallback) => {
   const options = {
     method: 'GET',
@@ -46,8 +49,8 @@ export const eliminarProducto = async (id, successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-// CRUD PARA USUARIOS
 
+// CRUD USUARIOS
 export const obtenerUsuarios = async (successCallback, errorCallback) => {
   const options = {
     method: 'GET',
@@ -82,12 +85,13 @@ export const editarUsuario = async (id, data, successCallback, errorCallback) =>
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-// CRUD DE VENTAS
 
-export const obtenerVentas = async (successCallback, errorCallback) => {
+
+// CRUD DE PEDIDOS
+export const obtenerPedidos = async (successCallback, errorCallback) => {
   const options = { 
     method: 'GET',
-    url: `${baseURL}/ventas`,
+    url: `${baseURL}/pedidos`,
     headers: {
       Authorization: getToken(),
     },
@@ -96,34 +100,46 @@ export const obtenerVentas = async (successCallback, errorCallback) => {
   
 };
 
-export const crearVenta = async (data, successCallback, errorCallback) => {
+export const crearPedido = async (data, successCallback, errorCallback) => {
   const options = {
     method: 'POST',
-    url: `${baseURL}/ventas/`,
+    url: `${baseURL}/pedidos/`,
     headers: { 'Content-Type': 'application/json', Authorization: getToken() },
     data,
-  };
+  }; console.log ('Llega Aquí La Data',data)
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const editarVenta = async (id, data, successCallback, errorCallback) => {
+
+
+export const editarPedido = async (id, data, successCallback, errorCallback) => {
   const options = {
     method: 'PATCH',
-    url: `${baseURL}/ventas/${id}/`,
+    url: `${baseURL}/pedidos/${id}/`,
     headers: { 'Content-Type': 'application/json', Authorization: getToken() },
     data,
   };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const eliminarVenta = async (id, successCallback, errorCallback) => {
+export const eliminarPedido = async (id, successCallback, errorCallback) => {
   const options = {
     method: 'DELETE',
-    url: `${baseURL}/ventas/${id}/`,
+    url: `${baseURL}/pedidos/${id}/`,
     headers: { 'Content-Type': 'application/json', Authorization: getToken() },
   };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-
+// CRUD SEDES
+export const obtenerSedes = async (successCallback, errorCallback) => {
+  const options = {
+    method: 'GET',
+    url: `${baseURL}/sedes/`,
+    headers: {
+      Authorization: getToken(),
+    },
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
 
