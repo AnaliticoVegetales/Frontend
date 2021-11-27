@@ -1,11 +1,13 @@
 import React from 'react';
-
-//imagenes
-import logo from '../media/logo.png';
+import Mapa from '../components/Mapa'
 
 
 const Index = () => {
-  return <div>Contenido</div>
+  return (
+    <div>
+      <Mapa/>
+    </div>
+  )
 };
 
 export default Index;
