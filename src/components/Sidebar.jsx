@@ -7,7 +7,7 @@ import PrivateComponent from 'components/PrivateComponent';
 const Sidebar = () => {
   const { logout } = useAuth0();
   const cerrarSesion = () => {
-    logout({ returnTo: 'https://localhost:3000' });
+    logout({ returnTo: 'http://localhost:3000' });
     localStorage.setItem('token', null);
   };
   return (
