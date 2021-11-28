@@ -7,7 +7,6 @@ import { MapContainer, TileLayer, Marker} from 'react-leaflet'
 const Mapa = ({sed,pedi,}) => {
   var lon = null
   var lat = null
-  console.log("QQW",sed[0]);
   if (pedi.sede ==="Bogotá") {
     var lon = 4.6299325
     var lat = -74.1870014
