@@ -5,7 +5,7 @@ import { obtenerPedidos, crearPedido, editarPedido, eliminarPedido } from 'utils
 import { obtenerProductos} from 'utils/api';
 import { obtenerUsuarios } from 'utils/api';
 import { obtenerSedes } from 'utils/api';
-
+import {Rechazado,Enviado,Rastreo} from 'components/Rastreo';
 import PrivateComponent from 'components/PrivateComponent';
 
 
@@ -96,54 +96,7 @@ const TablaPedidos = ({listaPedidos, setEjecutarConsulta}) => {
   
   console.log('lista pedidos', listaPedidos)
 
-//  useEffect(()=>{ 
-//   const handlesumar =()=>{
-//     let totales = listaPedidos.parse(listaPedidos);
-//     const suma = totales.map((total)=>parseFloat(total.TOTALVENTAS))
-//     .reduce ((previous, current)=>{
-//       return previous+current;
-//     },0);
-//     setSumaPedidos (suma);
-//   };
-//   handlesumar();
-// });
 
-// useEffect(()=>{ 
-  
-//   let totales = JSON.parse(listaPedidos);
-//   console.log('Totales', totales)
-//   let suma=0;
-//     totales.forEach((s)=>{
-//        suma = suma + totales.total;
-//      });
-//      setSumaPedidos (suma);
-//      console.log ('Suma Pedidos', suma);
-//   }, );
-
-
-
-  // function sumaPedidos (listaPedidos, fn){
-    
-  //   listaPedidos = JSON.parse(listaPedidos);
-  //   return  listaPedidos.map(typeof fn === 'function' ? fn : d => d[fn]).reduce((acomulador, valor) => acomulador + valor, 0);
-  // };
-
-//   try {
-//     console.log('Suma Pedidos', sumaPedidos(listaPedidos, 'total'));
-       
-// } catch (e) {
-//     console.log(`Error: ${e.message}`);
-// }
-// const sumaPedidos =()=>{
-//   let totales = listaPedidos.parse(listaPedidos);
-//   var suma = 0;
-
-// }
-    
-// let totales = JSON.parse(listaPedidos) ;
-
-// const sumaPedidos = totales.reduce((sum, value)=>(typeof value.total == "number"? sum + value.total : sum), 0);
-// console.log ('Sumatoria',sumaPedidos);
   
 
   
@@ -252,7 +205,7 @@ const FilaPedidos = ({pedido, setEjecutarConsulta})  => {
     fecha: pedido.fecha,
     producto: pedido.producto,
     cantidad: pedido.cantidad,
-    unidad: pedido.unidad,
+    precio: pedido.precio,
     cliente: pedido.cliente,
     vendedor: pedido.vendedor,
     transportador: pedido.transportador,
@@ -272,7 +225,7 @@ const FilaPedidos = ({pedido, setEjecutarConsulta})  => {
         fecha: infoNuevaPedido.fecha,
         producto: infoNuevaPedido.producto,
         cantidad: infoNuevaPedido.cantidad,
-        unidad: infoNuevaPedido.unidad,
+        precio: infoNuevaPedido.precio,
         cliente: infoNuevaPedido.cliente,
         vendedor: infoNuevaPedido.vendedor,
         transportador: infoNuevaPedido.transportador,
@@ -334,8 +287,8 @@ const FilaPedidos = ({pedido, setEjecutarConsulta})  => {
              return (
                <option
                  key={nanoid()}
-                 value={p.producto}
-               >{p.producto}</option>
+                 value={p.nombre}
+               >{p.nombre}</option>
              );
            })}
             </select>
@@ -353,7 +306,7 @@ const FilaPedidos = ({pedido, setEjecutarConsulta})  => {
             <input 
             type="number" 
             className="bg-gray-50 border border-gray-600 p-1 rounded-lg m-1 w-full"
-            value={infoNuevaPedido.unidad}
+            value={infoNuevaPedido.precio}
             onChange={(e) => setInfoNuevaPedido({ ...infoNuevaPedido, unidad: e.target.value })}/>
           </td>
 
@@ -448,7 +401,7 @@ const FilaPedidos = ({pedido, setEjecutarConsulta})  => {
                 <i
                   onClick={() => setEdit(!edit)}
                   className="fas fa-edit hover:text-yellow-600"/>
-              
+              <i className="fas fa-map-marked-alt hover:text-green-600"/>
                 <PrivateComponent roleList={['Administrador']}>    
                 <i
                     onClick={() => borrarPedido()}

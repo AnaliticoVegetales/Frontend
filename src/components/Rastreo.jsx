@@ -97,7 +97,7 @@ const Rastreo = () => {
   );
 };
 
-const enviado = () => {
+const Enviado = () => {
   return (
     <div className="bg-green-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
       <div className="flex justify-start items-center gap-2">
@@ -135,7 +135,7 @@ const enviado = () => {
     </div>
   );
 };
-const rechazado = () => {
+const Rechazado = () => {
     return (
         <div class="bg-pink-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
             <div class="flex justify-start items-center gap-2">
@@ -176,4 +176,4 @@ const rechazado = () => {
           </div>
     );}
 
-export default Rastreo;
+export default {Rastreo,Rechazado,Enviado};
