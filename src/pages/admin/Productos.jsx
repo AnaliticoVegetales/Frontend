@@ -36,10 +36,10 @@ const Productos = () => {
 
   useEffect(() => {
     if (mostrarTabla) {
-      setTextoBoton('Agregar Nuevo Producto');
+      setTextoBoton('Agregar Producto');
       
     } else {
-      setTextoBoton('Mostrar Todos Los Productos');
+      setTextoBoton('Todos Los Productos');
       
     }
   }, [mostrarTabla]);
@@ -55,7 +55,7 @@ const Productos = () => {
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`shadow-md fondo1 text-gray-300 font-bold p-2 rounded m-6  self-center`}>
+          className={`shadow-md bg-gray-200 text-gray-600 font-bold p-2 rounded m-6  self-center hover:bg-gray-300`}>
           {textoBoton}
         </button>
         {/* </PrivateComponent> */}
@@ -87,38 +87,78 @@ const Productos = () => {
     }, [busqueda, listaProductos]);
 
   return (
-    <div className='flex flex-col items-center justify-center'>
-      <input
-        value={busqueda}
-        onChange={(e) => setBusqueda(e.target.value)}
-        placeholder='Buscar'
-        className='border-2 border-gray-700 ml-3 mb-2 px-3 py-1 w-40 self-start rounded-md focus:outline-none focus:border-gray-500'
-      />
-      
-        <table className="tabla w-full">
-          <thead>
-            <tr>
-              <th className="fondo1  text-gray-300 w-28">Código</th>
-              <th className="fondo1  text-gray-300 w-36">Producto</th>
-              <th className="fondo1  text-gray-300 w-24">Cantidad</th>
-              <th className="fondo1  text-gray-300 w-32">Precio</th>
-              <th className="fondo1  text-gray-300 w-32">Estado</th>
-              {/* <PrivateComponent roleList={['Administrador']}> */}
-                <th className="fondo1  text-gray-300 w-24">Acciones</th>  
-              {/* </PrivateComponent> */}
-            </tr>
-          </thead>
-          <tbody>
-            {productosFiltrados.map((producto) => {
-              return <FilaProductos 
-                key={nanoid()} 
-                producto={producto}
-                setEjecutarConsulta={setEjecutarConsulta}/>;
-            })}
-          </tbody>
-        </table>
-      
-    </div>
+  <div>
+    <body className="antialiased font-sans bg-white">
+      <div class="container mx-auto px-4 sm:px-8">
+        <div class="py-8">
+
+          {/* BUSCADOR */}
+          <div class="my-2 mx-2 flex sm:flex-row flex-col">
+            <div class="block relative">
+              <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
+                  <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z">
+                  </path>
+                </svg>
+              </span>
+              <input 
+                value={busqueda}
+                onChange={(e) => setBusqueda(e.target.value)}
+                placeholder="Buscar"
+                class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"/>
+            </div>
+          </div>
+          
+            {/* HEADERS TABLA */}
+            <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+              <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+              
+              <table className="tabla w-full">
+                <thead>
+                  <tr>
+                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-lg font-extrabold text-gray-600 uppercase tracking-wider w-20">
+                        <i class="fas fa-passport"></i>
+                    </th>
+                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                        Producto
+                    </th>
+                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                        Cantidad
+                    </th>
+                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                        Precio
+                    </th>
+                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                        Estado
+                      </th>
+                    
+                    {/* <PrivateComponent roleList={['Administrador']}> */}
+                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                        Acciones
+                      </th> 
+                    {/* </PrivateComponent> */}
+                  </tr>
+                </thead>
+                <tbody>
+                  {productosFiltrados.map((producto) => {
+                    return <FilaProductos 
+                      key={nanoid()} 
+                      producto={producto}
+                      setEjecutarConsulta={setEjecutarConsulta}/>;
+                  })}
+                </tbody>
+              </table>
+              </div>
+
+            </div>
+        </div>
+      </div>
+    </body>
+
+        
+
+
+  </div>  
   );
 };
 
@@ -227,11 +267,11 @@ const FilaProductos = ({producto, setEjecutarConsulta})  => {
         
       ) :(
       <>
-          <td className=" text-center text-gray-800">{producto._id.slice(20)}</td>
-          <td className=" text-center text-gray-800">{producto.nombre}</td>
-          <td className=" text-center text-gray-800">{producto.cantidad}</td>
-          <td className=" text-center text-gray-800">{producto.precio}</td>
-          <td className=" text-center text-gray-800">{producto.estado}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{producto._id.slice(20)}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{producto.nombre}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{producto.cantidad}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{producto.precio}</td>
+          <td className={producto.estado === 'Disponible'? 'relative inline-block m-4 px-4 py-2 leading-tight bg-green-500 text-white text-center text-sm font-semibold opacity-80 rounded-full':'relative inline-block m-4 px-2 py-0 leading-tight bg-red-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'} >{producto.estado}</td>
       </>  
         )}
           <PrivateComponent roleList={['Administrador']}>
@@ -315,7 +355,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
             name='nombre'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2 '
             type='text'
-            placeholder='Ej: Producto 12'
+            placeholder='Ej: Tomante Cherry'
             required/>
         </label>
         
@@ -325,7 +365,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
             name='cantidad'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='number'
-            placeholder='Ej: 2019'
+            placeholder='Ej: 20'
             required/>
         </label>
         
@@ -339,7 +379,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
             type='number'
             min={200}
             max={5000}
-            placeholder='Ej: 230'
+            placeholder='Ej: 500'
             required/>
         </label>
         <label className='flex flex-col py-2 text-gray-800' htmlFor='estado'>
@@ -360,7 +400,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
         </label>
         <button
           type='submit'
-          className='col-span-2 py-3 fondo1 font-bold  text-gray-300 p-2 rounded-full shadow-md hover:bg-blue-600'
+          className='col-span-2 py-3 fondo1 font-bold  text-gray-300 p-2 rounded-full shadow-md hover:bg-gray-700'
         >
           Guardar Producto
         </button>

@@ -65,7 +65,7 @@ const Perfil = () => {
           </div>
           {/* Rol */}
           <div className="text-gray-700 mt-8 mb-2">
-            <i className="fas fa-user-tag mr-2 text-md text-gray-500 font-bold"></i>Administrador
+            <i className="fas fa-user-tag mr-2 text-md text-gray-500 font-bold"></i>{userData.rol}
           </div>
           {/* Estado */}
           <div className="text-gray-700 mt-0 mb-2 uppercase">
