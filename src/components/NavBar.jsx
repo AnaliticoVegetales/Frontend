@@ -1,5 +1,6 @@
 import React from 'react';
-import Logo from '../media/logo.png';
+// import Logo from '../media/logo.png';
+import Logo from '../media/logo_azul.png';
 import '../styles/styles.css'
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -21,7 +22,7 @@ const NavBar = () => {
         <div className="text-sm lg:flex-grow">
             <a href="#inicio" className="block mt-4 lg:inline-block lg:mt-0 transform hover:translate-y-1 transition-transform ease-in duration-200 text-gray-100 hover:text-gray-400 m-2 p-2">Inicio</a>
             <a href="#proyectos" className="block mt-4 lg:inline-block lg:mt-0 transform hover:translate-y-1 transition-transform ease-in duration-200 text-gray-100 hover:text-gray-400 m-2 p-2">Productos</a>
-            <a href="#equipo" className="block mt-4 lg:inline-block lg:mt-0 transform hover:translate-y-1 transition-transform ease-in duration-200 text-gray-100 hover:text-gray-400 m-2 p-2">Pedidos</a>
+            <a href="#equipo" className="block mt-4 lg:inline-block lg:mt-0 transform hover:translate-y-1 transition-transform ease-in duration-200 text-gray-100 hover:text-gray-400 m-2 p-2">Equipo</a>
             <a href="#contacto" className="block mt-4 lg:inline-block lg:mt-0 transform hover:translate-y-1 transition-transform ease-in duration-200 text-gray-100 hover:text-gray-400 m-2 p-2">Contacto</a>
         </div>
 

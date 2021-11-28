@@ -1,10 +1,10 @@
 import React from 'react';
 
-//imagenes
-//imagenes
-import Proyectos from '../media/pedro-miranda-unsplash.jpeg';
-import Cultivo from '../media/Cultivo.jpeg';
-import Vegetales from '../media/marisol-benitez-QvkAQTNj4zk-unsplash.jpeg';
+//Imagenes
+import Vegetales from '../media/gabriel-jimenez-jin4W1HqgL4-unsplash.jpeg';
+import Aguacate from '../media/Aguacate.jpeg';
+import Banano from '../media/Banano.jpeg';
+import Cafe from '../media/Cafe.jpeg';
 import Asesores1 from '../media/Asesores1-800x800.png';
 import Asesores2 from '../media/Asesores2-800x800.png';
 import Asesores3 from '../media/Asesores3-800x800.png';
@@ -34,8 +34,7 @@ const Index = () => {
                     El Campo a tu Alcance.
                   </h1>
                   <p className="mt-4 text-lg text-gray-300">
-                  En organizaciones del sector agro que cuentan con múltiples sitios de producción se requiere transportar productos entre los distintos sitios de producción a destinos externos. 
-                  Este portal permite coordinar a todos los actores para que la entrega del producto sea exitosa considerando variables como hora de recogida, hora de entrega, responsables y registro de la operación. 
+                  El portal de las Organizaciones del Sector Agro, que te ayudará a una comercialización de los porductos agrícolas eficazmente . 
                   </p>
                 </div>
               </div>
@@ -69,13 +68,14 @@ const Index = () => {
             <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-yellow-600">
                       
-                      <i className="fas fa-carrot"></i>
+                      <i className="fas fa-sitemap"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Aumenta Tu Alcance</h6>
+                    <h6 className="text-xl font-semibold">Organiza y Coordina</h6>
                     <p className="mt-2 mb-4 text-gray-600">
-                      Puedes gestionar, planificar y estructurar tu proyecto. Establecer planes de trabajo y metas a cumplir. Dale un norte a tu investigación
+                    Puedes organizar, planificar y coordinar la entrega de tus productos exitosamente.
+                      
                     </p>
                   </div>
                 </div>
@@ -85,12 +85,12 @@ const Index = () => {
             <div className="w-full md:w-4/12 px-4 text-center">
               <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                 <div className="px-4 py-5 flex-auto">
-                  <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
-                  <i className="fas fa-sitemap"></i>
+                  <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-600">
+                  <i className="fas fa-hands-helping"></i>
                   </div>
-                  <h6 className="text-xl font-semibold">Organiza y Coordina</h6>
+                  <h6 className="text-xl font-semibold">Solicita Asesorías</h6>
                   <p className="mt-2 mb-4 text-gray-600">
-                  Puedes coordinar la entrega de tus productos exitosamente considerando variables como hora de recogida, hora de entrega, responsables y registro de la operación.
+                  Asesórate con los mejores profecionales con todo un equipo de trabajo dispuesto a ayudarte.
                   </p>
                 </div>
               </div>
@@ -100,12 +100,12 @@ const Index = () => {
             <div className="pt-6 w-full md:w-4/12 px-4 text-center">
               <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                 <div className="px-4 py-5 flex-auto">
-                  <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
+                  <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-600">
                     <i className="fas fa-shipping-fast"></i>
                   </div>
                   <h6 className="text-xl font-semibold">Envía y Rastrea</h6>
                   <p className="mt-2 mb-4 text-gray-600">
-                    Este portal permite coordinar a todos los actores para que la entrega del producto sea exitosa considerando variables como hora de recogida, hora de entrega, responsables y registro de la operación.
+                    Rastrea tus envíos o pedidos  considerando la hora de recogida, entrega, responsables y registro de la operación.
                   </p>
                 </div>
               </div>
@@ -116,7 +116,7 @@ const Index = () => {
       </section>
 
       {/* PROYECTOS */}
-      <section id="proyectos" className="relative py-20">
+      <section  className="relative py-20">
           {/* División svg */}
           <div className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 svg2">
             <svg
@@ -213,14 +213,19 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <section className="text-gray-600 body-font">
+      <section id="proyectos" className="text-gray-600 body-font">
         <div className="container px-5 py-12 mx-auto">
+        <h1 className='text-center pt-12 pb-20 text-4xl font-semibold text-gray-900'>Productos Destacados del Mes</h1>
           <div className="flex flex-wrap -m-4">
             <div className="p-4 lg:w-1/3">
               <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORÍA</h2>
-                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Proyecto de Investigación # 1</h1>
-                <p className="leading-relaxed mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit vitae exercitationem aliquid dolores ullam temporibus...</p>
+                
+                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Aguacate</h1>
+                <img
+                alt="..."
+                className="max-w-full rounded-lg shadow-lg"
+                src={Aguacate} alt="aguacate" width="620"
+              />
                 <a className="text-blue-500 inline-flex items-center">Leer más
                   <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14"></path>
@@ -244,9 +249,13 @@ const Index = () => {
             </div>
             <div className="p-4 lg:w-1/3">
               <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORÍA</h2>
-                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Proyecto de Investigación # 2</h1>
-                <p className="leading-relaxed mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit vitae exercitationem aliquid dolores ullam temporibus...</p>
+                
+                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Banano</h1>
+                <img
+                alt="..."
+                className="max-w-full rounded-lg shadow-lg"
+                src={Banano} alt="aguacate" width="620"
+              />
                 <a className="text-blue-500 inline-flex items-center">Leer más
                   <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14"></path>
@@ -270,9 +279,13 @@ const Index = () => {
             </div>
             <div className="p-4 lg:w-1/3">
               <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORÍA</h2>
-                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Proyecto de Investigación # 3</h1>
-                <p className="leading-relaxed mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit vitae exercitationem aliquid dolores ullam temporibus...</p>
+                
+                <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Café</h1>
+                <img
+                alt="..."
+                className="max-w-full rounded-lg shadow-lg"
+                src={Cafe} alt="aguacate" width="620"
+              />
                 <a className="text-blue-500 inline-flex items-center">Leer más
                   <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14"></path>
