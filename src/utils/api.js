@@ -110,7 +110,14 @@ export const crearPedido = async (data, successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-
+export const buscarPedido = async (id, successCallback, errorCallback) => {
+  const options = {
+    method: 'GET',
+    url: `${baseURL}/pedidos/${id}/`,
+    headers: { 'Content-Type': 'application/json', Authorization: getToken() }
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
 
 export const editarPedido = async (id, data, successCallback, errorCallback) => {
   const options = {
