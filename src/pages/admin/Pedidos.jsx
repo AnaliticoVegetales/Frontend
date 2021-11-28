@@ -14,6 +14,7 @@ import { buscarPedido } from "utils/api";
 import Rastreo from "components/Rastreo";
 import PrivateComponent from "components/PrivateComponent";
 
+
 const Pedidos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [mostrarRas, setMostrarRas] = useState(false);
