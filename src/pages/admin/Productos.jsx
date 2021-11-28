@@ -116,8 +116,11 @@ const Productos = () => {
               <table className="tabla w-full">
                 <thead>
                   <tr>
-                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-lg font-extrabold text-gray-600 uppercase tracking-wider w-20">
+                    {/* <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-lg font-extrabold text-gray-600 uppercase tracking-wider w-20">
                         <i class="fas fa-passport"></i>
+                    </th> */}
+                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                        Código
                     </th>
                     <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
                         Producto
@@ -130,12 +133,12 @@ const Productos = () => {
                     </th>
                     <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
                         Estado
-                      </th>
+                    </th>
                     
                     {/* <PrivateComponent roleList={['Administrador']}> */}
                     <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
                         Acciones
-                      </th> 
+                    </th> 
                     {/* </PrivateComponent> */}
                   </tr>
                 </thead>
@@ -276,7 +279,7 @@ const FilaProductos = ({producto, setEjecutarConsulta})  => {
         )}
           <PrivateComponent roleList={['Administrador']}>
         <td>
-            <div className="flex w-full justify-around text-gray-800 ">
+            <div className="flex w-full justify-around text-gray-600 ">
               {edit? (
                 <>
                   <i
@@ -295,7 +298,7 @@ const FilaProductos = ({producto, setEjecutarConsulta})  => {
                     
                   <i
                       onClick={() => borrarProducto()}
-                      class="fas fa-trash text-gray-800 hover:text-red-500"/>
+                      class="fas fa-trash text-gray-600 hover:text-red-500"/>
                 </>
               )} 
               

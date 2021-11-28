@@ -131,6 +131,7 @@ export const eliminarPedido = async (id, successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
+
 // CRUD SEDES
 export const obtenerSedes = async (successCallback, errorCallback) => {
   const options = {

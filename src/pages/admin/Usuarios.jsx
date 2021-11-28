@@ -77,36 +77,76 @@ const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta }) => {
 
   }
   return (
-    <div className='flex flex-col items-center justify-center'>
-      <input
-        value={busqueda}
-        onChange={(e) => setBusqueda(e.target.value)}
-        placeholder='Buscar'
-        className='border-2 border-gray-700 ml-3 mb-2 px-3 py-1 w-40 self-start rounded-md focus:outline-none focus:border-gray-500'
-      />
-       
-        <table className="tabla w-full ">
-          <thead>
-            <tr>
-              <th className="fondo1 text-gray-300 w-32"> ID Usuario</th>
-              <th className="fondo1 text-gray-300 w-44"> Nombre Completo</th>
-              <th className="fondo1 text-gray-300 w-32">Correo</th>
-              <th className="fondo1 text-gray-300 w-32">Rol</th> 
-              <th className="fondo1 text-gray-300 w-32">Estado</th> 
-              <th className="fondo1 text-gray-300 w-36">Editar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {usuriosFiltrados.map((usuario) => {
-              return <FilaUsuarios 
-                key={nanoid()} 
-                usuario={usuario}
-                setEjecutarConsulta={setEjecutarConsulta}/>;
-            })}
-          </tbody>
-        </table>
-      
+    <div>
+      <body className="antialiased font-sans bg-white">
+        <div class="container mx-auto px-4 sm:px-8">
+          <div class="py-8">
+
+          {/* BUSCADOR */}
+            <div class="my-2 mx-2 flex sm:flex-row flex-col">
+              <div class="block relative">
+                <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
+                    <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z">
+                    </path>
+                  </svg>
+                </span>
+                <input 
+                  value={busqueda}
+                  onChange={(e) => setBusqueda(e.target.value)}
+                  placeholder="Buscar"
+                  class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"/>
+              </div>
+            </div>
+            <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+            <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+
+              <table className="tabla w-full">
+                <thead>
+                  <tr>
+                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-lg font-extrabold text-gray-600 uppercase tracking-wider w-20">
+                        <i class="fas fa-address-card"></i>
+                    </th> 
+                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                        Código
+                    </th>
+                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                        Nombre Completo
+                    </th>
+                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-28">
+                        Correo Electrónico
+                    </th>
+                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-28">
+                        Rol
+                    </th>
+                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                        Estado
+                    </th> 
+                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                        Editar
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {usuriosFiltrados.map((usuario) => {
+                    return <FilaUsuarios 
+                      key={nanoid()} 
+                      usuario={usuario}
+                      setEjecutarConsulta={setEjecutarConsulta}/>;
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            </div>
+            
+          </div>
+
+        </div>
+        
+      </body>
     </div>
+
   );
 };
 
@@ -152,8 +192,12 @@ const FilaUsuarios = ({usuario, setEjecutarConsulta})  => {
       {edit? (
         <>
         
+          <td className="px-3 py-3 border-b border-gray-300 bg-white text-sm text-center w-20">
+            <div class="flex items-center flex-shrink-0 w-10 h-10">
+                <img class="w-full h-full rounded-full" src={usuario.picture} alt="ProfilePicture" />
+            </div>
+          </td>
           <td className='text-center'>{infoNuevoUsuario._id.slice(20)}</td>
-          
           <td><input 
             type="text" 
             className="bg-gray-50 border border-gray-600 p-1 text-center rounded-lg m-1 w-full"
@@ -193,12 +237,12 @@ const FilaUsuarios = ({usuario, setEjecutarConsulta})  => {
               name='estado'
               required
               onChange ={(e) => setInfoNuevoUsuario({ ...infoNuevoUsuario, estado: e.target.value })}
-              defaultValue={infoNuevoUsuario.rol}>
+              defaultValue={infoNuevoUsuario.estado}>
                 <option disabled value={0}>
                 Seleccione Estado
                 </option>
-                <option value="Pendiente">Pendiente</option>
                 <option value="Activo">Activo</option>
+                <option value="Pendiente">Pendiente</option>
                 <option value="Inactivo">Inactivo</option>
               </select>
 
@@ -209,11 +253,19 @@ const FilaUsuarios = ({usuario, setEjecutarConsulta})  => {
         
       ) :(
       <>
-          <td className=" text-center text-gray-800">{usuario._id.slice(20)}</td>
-          <td className=" text-center text-gray-800">{usuario.name}</td>
-          <td className=" text-center text-gray-800">{usuario.email}</td>
-          <td className=" text-center text-gray-800">{usuario.rol}</td>
-          <td className=" text-center text-gray-800">{usuario.estado}</td>
+          
+          <td className="px-3 py-3 border-b border-gray-300 bg-white text-sm text-center w-20">
+            <div class="flex items-center flex-shrink-0 w-10 h-10">
+                <img class="w-full h-full rounded-full" src={usuario.picture} alt="ProfilePicture" />
+            </div>
+          </td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-sm text-center text-gray-800">{usuario._id.slice(20)}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-sm text-center text-gray-800">{usuario.name}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-sm text-center text-gray-800">{usuario.email}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-sm text-center text-gray-800">{usuario.rol}</td>
+          <td className= {usuario.estado === 'Activo'? 'relative inline-block m-4 px-6 py-2 leading-tight bg-green-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'
+          : usuario.estado=== 'Pendiente'?('relative inline-block m-4 px-3 py-2 leading-tight bg-yellow-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'
+          ):'relative inline-block m-4 px-5 py-2 leading-tight bg-red-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'}>{usuario.estado}</td>
           
         </>  
         )}

@@ -281,7 +281,7 @@ const FilaPedidos = ({pedido, setEjecutarConsulta})  => {
         
       },
       (response) => {
-        console.log('Pedido Editada',response.data);
+        console.log('Pedido Editado',response.data);
         toast.success('Pedido Modificada Exitosamente');
         setEdit(false);
         setEjecutarConsulta(true);
