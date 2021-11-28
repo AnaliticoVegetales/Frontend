@@ -533,7 +533,9 @@ const FilaPedidos = ({
           <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.cliente}</td>
           <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.vendedor}</td>
           <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.transportador}</td>
-          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.estado}</td>
+          <td className= {pedido.estado === 'Entregada'? 'relative inline-block m-4 px-4 py-2 leading-tight bg-green-900 text-white text-center text-sm font-semibold opacity-80 rounded-full'
+          : pedido.estado=== 'En Proceso'?('relative inline-block m-4 px-3 py-2 leading-tight bg-yellow-600 text-white text-center text-sm font-semibold opacity-95 rounded-full'
+          ):'relative inline-block m-4 px-4 py-2 leading-tight bg-red-500 text-white text-center text-sm font-semibold opacity-95 rounded-full'}>{pedido.estado}</td>
           <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">
             {(pedido.total = pedido.cantidad * pedido.precio)}
           </td>
