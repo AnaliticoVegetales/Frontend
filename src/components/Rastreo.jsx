@@ -9,10 +9,10 @@ import Mapa from 'components/Mapa'
 
 
 
-const Rastreo = ({setMostrarRas,pedi}) => {
+const Rastreo = ({setMostrarRas,pedi,sed,}) => {
   const [open, setOpen] = useState(false)
   const cancelButtonRef = useRef(null)
-
+  
   return (
     <>
     <Transition.Root show={open} as={Fragment}>
@@ -44,7 +44,7 @@ const Rastreo = ({setMostrarRas,pedi}) => {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-              <Mapa/>
+              <Mapa sed = {sed} pedi = {pedi}/>
               <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                 <button
                   type="button"

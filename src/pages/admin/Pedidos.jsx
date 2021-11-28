@@ -21,6 +21,7 @@ const Pedidos = () => {
   const [textoBoton, setTextoBoton] = useState("Agregar Pedido");
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 const [pedi,setPedi]=useState({});
+const [sed,setSed]=useState({});
   useEffect(() => {
     console.log("consulta", ejecutarConsulta);
     if (ejecutarConsulta) {
@@ -78,7 +79,7 @@ const [pedi,setPedi]=useState({});
         )}
       </div>
       {mostrarRas & !mostrarTabla ? (
-        <Rastreo setMostrarRas={setMostrarRas} pedi = {pedi}/>
+        <Rastreo setMostrarRas={setMostrarRas} pedi = {pedi} sed = {sed}/>
       ) : mostrarTabla ? (
         <TablaPedidos
           listaPedidos={pedidos}
@@ -88,6 +89,7 @@ const [pedi,setPedi]=useState({});
           setMostrarRas={setMostrarRas}
           mostrarRas={mostrarRas}
           setPedi = {setPedi}
+          setSed = {setSed}
         />
       ) : (
         <FormularioCreacionPedidos
@@ -109,6 +111,7 @@ const TablaPedidos = ({
   setMostrarRas,
   mostrarRas,
   setPedi,
+  setSed,
 }) => {
   const [busqueda, setBusqueda] = useState("");
   const [pedidosFiltrados, setPedidosFiltrados] = useState(listaPedidos);
@@ -203,6 +206,7 @@ const TablaPedidos = ({
                           setMostrarRas={setMostrarRas}
                           mostrarRas={mostrarRas}
                           setPedi = {setPedi}
+                          setSed = {setSed}
                         />
                       );
                     })}
@@ -226,7 +230,8 @@ const FilaPedidos = ({
   mostrarTabla,
   setMostrarRas,
   mostrarRas,
-  setPedi
+  setPedi,
+  setSed,
 }) => {
   const [edit, setEdit] = useState(false);
   const [usuarios, setUsuarios] = useState([]);
@@ -283,6 +288,7 @@ const FilaPedidos = ({
   );
   const listaProductos = productos.filter((p) => p.estado === "Disponible");
 
+  
   const [infoNuevaPedido, setInfoNuevaPedido] = useState({
     _id: pedido._id,
     fecha: pedido.fecha,
@@ -348,6 +354,10 @@ const FilaPedidos = ({
         console.log("PEDIDO", response.data);
         setMostrarRas(!mostrarRas);
         setPedi(response.data);
+
+        const seded = sedes.filter((p)=>p.nombre === response.data.sede);
+        setSed(seded);
+
       },
       (error) => {
         toast.error("Error Modificando Pedido");
