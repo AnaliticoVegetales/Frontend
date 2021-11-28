@@ -18,7 +18,7 @@ const Pedidos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [mostrarRas, setMostrarRas] = useState(false);
   const [pedidos, setPedidos] = useState([]);
-  const [textoBoton, setTextoBoton] = useState("Agregar Nueva Pedido");
+  const [textoBoton, setTextoBoton] = useState("Agregar Pedido");
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 const [pedi,setPedi]=useState({});
   useEffect(() => {
@@ -52,9 +52,9 @@ const [pedi,setPedi]=useState({});
   }, [mostrarRas]);
   useEffect(() => {
     if (mostrarTabla) {
-      setTextoBoton("Agregar Nueva Pedido");
+      setTextoBoton("Agregar Pedido");
     } else {
-      setTextoBoton("Mostrar Todos Las Pedidos");
+      setTextoBoton("Todos Los Pedidos");
     }
   }, [mostrarTabla]);
   return (
@@ -66,14 +66,15 @@ const [pedi,setPedi]=useState({});
         {mostrarRas & !mostrarTabla ? (
           <></>
         ) : (
+          <PrivateComponent roleList={['Administrador', 'Vendedor']}>
           <button
             onClick={() => {
               setMostrarTabla(!mostrarTabla);
             }}
-            className={`shadow-md fondo1 text-gray-300 font-bold p-2 rounded m-6  self-center hover:bg-black`}
-          >
+            className={`shadow-md fondo1 text-gray-200 font-bold p-2 rounded m-6  self-center hover:bg-black`}>
             {textoBoton}
           </button>
+          </PrivateComponent>
         )}
       </div>
       {mostrarRas & !mostrarTabla ? (
@@ -126,52 +127,94 @@ const TablaPedidos = ({
   console.log("lista pedidos", listaPedidos);
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <input
-        value={busqueda}
-        onChange={(e) => setBusqueda(e.target.value)}
-        placeholder="Buscar"
-        className="border-2 border-gray-700 ml-3 mb-2 px-3 py-1 w-40 self-start rounded-md focus:outline-none focus:border-gray-500"
-      />
+    <div>
+      <body className="antialiased font-sans bg-white">
+        <div class="container mx-auto px-4 sm:px-8">
+          <div class="py-8">
+            
+            {/* BUSCADOR */}
+            <div class="my-2 mx-2 flex sm:flex-row flex-col">
+              <div class="block relative">
+                <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current text-gray-500">
+                    <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z">
+                    </path>
+                  </svg>
+                </span>
+                <input 
+                  value={busqueda}
+                  onChange={(e) => setBusqueda(e.target.value)}
+                  placeholder="Buscar"
+                  class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"/>
+              </div>
+            </div>
 
-      <table className="tabla w-full">
-        <thead>
-          <tr>
-            <th className="fondo1  text-gray-300 w-28">ID</th>
-            <th className="fondo1  text-gray-300 w-32">Fecha</th>
-            <th className="fondo1  text-gray-300 w-44">Producto</th>
-            <th className="fondo1  text-gray-300 w-32">Cantidad</th>
-            <th className="fondo1  text-gray-300 w-32">Valor Unidad</th>
-            <th className="fondo1  text-gray-300 w-44">Cliente</th>
-            <th className="fondo1  text-gray-300 w-36">Vendedor</th>
-            <th className="fondo1  text-gray-300 w-36">Transportador</th>
-            <th className="fondo1  text-gray-300 w-32">Estado</th>
-            <th className="fondo1  text-gray-300 w-36">Total</th>
-            <th className="fondo1  text-gray-300 w-32">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pedidosFiltrados.map((pedido) => {
-            console.log("Pedidos Filtardo", pedidosFiltrados);
-            return (
-              <FilaPedidos
-                key={nanoid()}
-                pedido={pedido}
-                setEjecutarConsulta={setEjecutarConsulta}
-                setMostrarTabla={setMostrarTabla}
-                mostrarTabla={mostrarTabla}
-                setMostrarRas={setMostrarRas}
-                mostrarRas={mostrarRas}
-                setPedi = {setPedi}
-              />
-            );
-          })}
-        </tbody>
-      </table>
-      {/* <div className='flex font-extrabold pb-10 pt-6'>
-      <h1 >Total Pedidos:</h1>
-      <span>{sumaPedidos}</span>
-         </div>  */}
+            {/* HEADERS TABLA */}
+            <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+              <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                <table className="tabla w-full">
+                  <thead>
+                    <tr>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Código
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Fecha
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Producto
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-16">
+                        Cantidad
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Precio
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Cliente
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Vendedor
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Transportador
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Estado
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Total
+                      </th>
+                      <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
+                        Acciones
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {pedidosFiltrados.map((pedido) => {
+                      console.log("Pedidos Filtardo", pedidosFiltrados);
+                      return (
+                        <FilaPedidos
+                          key={nanoid()}
+                          pedido={pedido}
+                          setEjecutarConsulta={setEjecutarConsulta}
+                          setMostrarTabla={setMostrarTabla}
+                          mostrarTabla={mostrarTabla}
+                          setMostrarRas={setMostrarRas}
+                          mostrarRas={mostrarRas}
+                          setPedi = {setPedi}
+                        />
+                      );
+                    })}
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </body>
     </div>
   );
 };
@@ -472,16 +515,16 @@ const FilaPedidos = ({
         </>
       ) : (
         <>
-          <td className=" text-center text-gray-800">{pedido._id.slice(20)}</td>
-          <td className=" text-center text-gray-800">{pedido.fecha}</td>
-          <td className=" text-center text-gray-800">{pedido.producto}</td>
-          <td className=" text-center text-gray-800">{pedido.cantidad}</td>
-          <td className=" text-center text-gray-800">{pedido.precio}</td>
-          <td className=" text-center text-gray-800">{pedido.cliente}</td>
-          <td className=" text-center text-gray-800">{pedido.vendedor}</td>
-          <td className=" text-center text-gray-800">{pedido.transportador}</td>
-          <td className=" text-center text-gray-800">{pedido.estado}</td>
-          <td className=" text-center text-gray-800">
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido._id.slice(20)}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.fecha}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.producto}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.cantidad}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.precio}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.cliente}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.vendedor}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.transportador}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{pedido.estado}</td>
+          <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">
             {(pedido.total = pedido.cantidad * pedido.precio)}
           </td>
         </>

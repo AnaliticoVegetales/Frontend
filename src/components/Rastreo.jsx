@@ -3,8 +3,8 @@ import React from "react";
 const Rastreo = ({setMostrarRas,pedi}) => {
   return (
 
-      <div class="w-6/12  min-w-max	bg-white rounded-lg shadow-sm  mx-64">
-        <h1 class="font-extrabold tracking-wider text-center">Pedido {pedi._id}</h1>
+      <div class="w-5/12  min-w-max	bg-white rounded-lg shadow-sm  mx-64">
+        <h1 class="font-extrabold tracking-wider text-center">Pedido #</h1>
 
         <div class="flex flex-col mt-5 gap-7 text-sm">
           <div class="bg-indigo-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
@@ -70,7 +70,7 @@ const Rastreo = ({setMostrarRas,pedi}) => {
                 <p class="text-gray-700 font-bold tracking-wider">En curso</p>
                 <div className="flex justify-start items-center gap-2">
                   <p class="text-gray-400 text-xs"> Fecha: </p>
-                  <p class="text-gray-400 text-xs"> {pedi.fecha} </p>
+                  <p class="text-gray-400 text-xs"> 26/11/2021 </p>
                 </div>
                 <div className="flex justify-start items-center gap-2">
                   <p className="text-gray-400 text-xs"> Hora: </p>
@@ -131,8 +131,8 @@ const Enviado = ({pedi}) => {
         <div>
           <p class="text-gray-700 font-bold tracking-wider">Recibido</p>
           <div className="flex justify-start items-center gap-2">
-            <p class="text-gray-400 text-sm"> Fecha: </p>
-            <p class="text-gray-400 text-sm"> {pedi.fecha} </p>
+            <p class="text-gray-400 text-xs"> Fecha: </p>
+            <p class="text-gray-400 text-xs"> 26/11/2021 </p>
           </div>
           <div className="flex justify-start items-center gap-2">
             <p className="text-gray-400 text-xs"> Hora: </p>

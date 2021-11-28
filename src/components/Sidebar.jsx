@@ -14,9 +14,9 @@ const Sidebar = () => {
 
 
 <div className="min-h-screen flex flex-row fondo1  text-gray-300">
-  <div className="flex flex-col w-80 overflow-hidden">
+  <div className="flex flex-col w-72 overflow-hidden">
     <div className="flex flex-col items-center justify-center h-20 ">
-      <div ><img className="px-2 pt-40 mt-40 " src={Logo} alt="logo" width="150" /></div>
+      <div ><img className="px-2 pt-40 mt-40 " src={Logo} alt="logo" width="120" /></div>
       
       <h1 className="fuente text-xl uppercase text-gray-200 text-bold shadow-md mb-40 ">Analítico Vegetales</h1>
     </div>
