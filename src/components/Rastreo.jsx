@@ -1,10 +1,10 @@
 import React from "react";
 
-const Rastreo = () => {
+const Rastreo = ({setMostrarRas,pedi}) => {
   return (
-    <div class="w-full min-h-screen bg-gray-100 flex justify-center items-center">
-      <div class="w-full bg-white rounded-lg shadow-sm p-8 mx-64">
-        <h1 class="font-extrabold tracking-wider text-center">Pedido #</h1>
+
+      <div class="w-6/12  min-w-max	bg-white rounded-lg shadow-sm  mx-64">
+        <h1 class="font-extrabold tracking-wider text-center">Pedido {pedi._id}</h1>
 
         <div class="flex flex-col mt-5 gap-7 text-sm">
           <div class="bg-indigo-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
@@ -25,21 +25,26 @@ const Rastreo = () => {
                 <p class="text-gray-700 font-bold tracking-wider">Creado</p>
                 <div>
                   <div className="flex justify-start items-center gap-2">
-                    <p class="text-gray-400 text-sm"> Fecha: </p>
-                    <p class="text-gray-400 text-sm"> 26/11/2021 </p>
+                    <p class="text-gray-400 text-xs"> Fecha: </p>
+                    <p class="text-gray-400 text-xs">{pedi.fecha}</p>
                   </div>
                   <div className="flex justify-start items-center gap-2">
-                    <p className="text-gray-400 text-sm"> Hora: </p>
-                    <p class="text-gray-400 text-sm"> 16:52</p>
+                    <p className="text-gray-400 text-xs"> Hora: </p>
+                    <p class="text-gray-400 text-xs"> 16:52</p>
                   </div>
                 </div>
               </div>
             </div>
             <div>
-              <p class="text-gray-700 font-bold tracking-wider">Encargado</p>
-              <p class="text-gray-400 text-sm">
+              <p class="text-gray-700 font-bold tracking-wider">Transportador</p>
+              <p class="text-gray-400 text-xs">
                 {" "}
-                David Camilo Serrato Trujillo
+               {pedi.transportador}
+              </p>
+              <p class="text-gray-700 font-bold tracking-wider">Vendedor</p>
+              <p class="text-gray-400 text-xs">
+                {" "}
+               {pedi.vendedor}
               </p>
             </div>
 
@@ -62,42 +67,52 @@ const Rastreo = () => {
                 ></path>
               </svg>
               <div>
-                <p class="text-gray-700 font-bold tracking-wider">Enviado - En curso</p>
+                <p class="text-gray-700 font-bold tracking-wider">En curso</p>
                 <div className="flex justify-start items-center gap-2">
-                  <p class="text-gray-400 text-sm"> Fecha: </p>
-                  <p class="text-gray-400 text-sm"> 26/11/2021 </p>
+                  <p class="text-gray-400 text-xs"> Fecha: </p>
+                  <p class="text-gray-400 text-xs"> {pedi.fecha} </p>
                 </div>
                 <div className="flex justify-start items-center gap-2">
-                  <p className="text-gray-400 text-sm"> Hora: </p>
-                  <p class="text-gray-400 text-sm"> 16:52</p>
+                  <p className="text-gray-400 text-xs"> Hora: </p>
+                  <p class="text-gray-400 text-xs"> 16:52</p>
                 </div>
               </div>
             </div>
             <div>
-              <p class="text-gray-700 font-bold tracking-wider">Encargado</p>
-              <p class="text-gray-400 text-sm">
+            <p class="text-gray-700 font-bold tracking-wider">Transportador</p>
+              <p class="text-gray-400 text-xs">
                 {" "}
-                David Camilo Serrato Trujillo
+               {pedi.transportador}
+              </p>
+              <p class="text-gray-700 font-bold tracking-wider">Vendedor</p>
+              <p class="text-gray-400 text-xs">
+                {" "}
+               {pedi.vendedor}
               </p>
             </div>
             <span className="font-bold text-yellow-500 text-3xl mr-3">
               <i className="fas fa-sync-alt"></i>
             </span>
           </div>
-
+             {pedi.estado === "Entregada"?(<Enviado pedi={pedi}/>):pedi.estado === "Cancelada"?(<Rechazado pedi = {pedi}/>):<div></div>}
           
         </div>
-        <div className="flex justify-end items-center mt-8 mr-3">
-          <span class="font-bold text-gray-400 height text-4xl hover:text-gray-500 hover:text-4xl">
+        <div className="flex justify-center items-center mt-8 ml-8 mr-3 mb-8">
+          <span class="font-bold text-gray-400 height text-4xl hover:text-gray-500 hover:text-4xl mt-8 ml-8">
             <i className="fas fa-map-marked-alt"></i>
           </span>
+          <span class="font-bold text-gray-400 height text-4xl hover:text-gray-500 hover:text-4xl mt-8 ml-8">
+            <i onClick ={() => setMostrarRas(false)} className="far fa-hand-point-left"></i>
+          </span>
         </div>
+
+          
       </div>
-    </div>
+    
   );
 };
 
-const enviado = () => {
+const Enviado = ({pedi}) => {
   return (
     <div className="bg-green-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
       <div className="flex justify-start items-center gap-2">
@@ -117,17 +132,25 @@ const enviado = () => {
           <p class="text-gray-700 font-bold tracking-wider">Recibido</p>
           <div className="flex justify-start items-center gap-2">
             <p class="text-gray-400 text-sm"> Fecha: </p>
-            <p class="text-gray-400 text-sm"> 26/11/2021 </p>
+            <p class="text-gray-400 text-sm"> {pedi.fecha} </p>
           </div>
           <div className="flex justify-start items-center gap-2">
-            <p className="text-gray-400 text-sm"> Hora: </p>
-            <p class="text-gray-400 text-sm"> 16:52</p>
+            <p className="text-gray-400 text-xs"> Hora: </p>
+            <p class="text-gray-400 text-xs"> 16:52</p>
           </div>
         </div>
       </div>
       <div>
-        <p class="text-gray-700 font-bold tracking-wider">Encargado</p>
-        <p class="text-gray-400 text-sm"> David Camilo Serrato Trujillo</p>
+      <p class="text-gray-700 font-bold tracking-wider">Transportador</p>
+              <p class="text-gray-400 text-xs">
+                {" "}
+               {pedi.transportador}
+              </p>
+              <p class="text-gray-700 font-bold tracking-wider">Vendedor</p>
+              <p class="text-gray-400 text-xs">
+                {" "}
+               {pedi.vendedor}
+              </p>
       </div>
       <span class="font-bold text-green-500 text-3xl mr-3">
         <i className="fas fa-clipboard-check"></i>
@@ -135,7 +158,7 @@ const enviado = () => {
     </div>
   );
 };
-const rechazado = () => {
+const Rechazado = ({pedi}) => {
     return (
         <div class="bg-pink-50 flex justify-between items-center p-3 rounded-sm shadow-sm">
             <div class="flex justify-start items-center gap-2">
@@ -154,20 +177,25 @@ const rechazado = () => {
               <div>
                 <p class="text-gray-700 font-bold tracking-wider">Devuelto</p>
                 <div className="flex justify-start items-center gap-2">
-                  <p class="text-gray-400 text-sm"> Fecha: </p>
-                  <p class="text-gray-400 text-sm"> 26/11/2021 </p>
+                  <p class="text-gray-400 text-xs"> Fecha: </p>
+                  <p class="text-gray-400 text-xs"> 26/11/2021 </p>
                 </div>
                 <div className="flex justify-start items-center gap-2">
-                  <p className="text-gray-400 text-sm"> Hora: </p>
-                  <p class="text-gray-400 text-sm"> 16:52</p>
+                  <p className="text-gray-400 text-xs"> Hora: </p>
+                  <p class="text-gray-400 text-xs"> 16:52</p>
                 </div>
               </div>
             </div>
             <div>
-              <p class="text-gray-700 font-bold tracking-wider">Encargado</p>
-              <p class="text-gray-400 text-sm">
+            <p class="text-gray-700 font-bold tracking-wider">Transportador</p>
+              <p class="text-gray-400 text-xs">
                 {" "}
-                David Camilo Serrato Trujillo
+               {pedi.transportador}
+              </p>
+              <p class="text-gray-700 font-bold tracking-wider">Vendedor</p>
+              <p class="text-gray-400 text-xs">
+                {" "}
+               {pedi.vendedor}
               </p>
             </div>
             <span class="font-bold text-pink-500 text-3xl mr-3">

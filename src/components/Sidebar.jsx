@@ -30,34 +30,35 @@ const Sidebar = () => {
         </Link> 
       </li>
       <li>
-        {/* <PrivateComponent roleList={['Administrador']}> */}
+        <PrivateComponent roleList={['Administrador']}>
           <Link to='/admin/usuarios' >
             <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-300 hover:text-gray-500">
               <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-200"><i className="fas fa-users"></i></span>
               <span className="text-sm font-medium">Usuarios</span>
             </a>
           </Link>
-          {/* </PrivateComponent>   */}
+          </PrivateComponent>  
       </li>
       <li>
-      {/* <PrivateComponent roleList={['Administrador','Vendedor','Cliente']}>   */}
+      <PrivateComponent roleList={['Administrador','Vendedor','Cliente','Transportador']}>  
         <Link to='/admin/productos'>
             <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-300 hover:text-gray-500">
               <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-200"><i className="fas fa-carrot"></i></span>
               <span className="text-sm font-medium">Productos</span>
             </a>
         </Link>
-      {/* </PrivateComponent>     */}
+      </PrivateComponent>    
       </li>
+      
       <li>
-        {/* <PrivateComponent roleList={['Administrador', 'Vendedor']}> */}
+        <PrivateComponent roleList={['Administrador', 'Vendedor','Cliente', 'Transportador']}>
           <Link to='/admin/pedidos'>
             <a href="#" className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-300 hover:text-gray-500">
               <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-200"><i className="fas fa-shipping-fast"></i></span>
               <span className="text-sm font-medium">Pedidos</span>
             </a>
           </Link>
-          {/* </PrivateComponent> */}
+          </PrivateComponent>
       </li>
 
       <li>

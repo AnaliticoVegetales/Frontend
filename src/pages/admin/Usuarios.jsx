@@ -104,25 +104,25 @@ const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta }) => {
               <table className="tabla w-full">
                 <thead>
                   <tr>
-                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-lg font-extrabold text-gray-600 uppercase tracking-wider w-20">
+                    <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-lg font-extrabold text-gray-200 uppercase tracking-wider w-20">
                         <i class="fas fa-address-card"></i>
                     </th> 
-                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                    <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
                         Código
                     </th>
-                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                    <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-32">
                         Nombre Completo
                     </th>
-                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-28">
+                    <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-28">
                         Correo Electrónico
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-28">
+                    <th class="px-5 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-28">
                         Rol
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                    <th class="px-5 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-32">
                         Estado
                     </th> 
-                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                    <th class="px-5 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
                         Editar
                     </th>
                   </tr>
@@ -263,9 +263,9 @@ const FilaUsuarios = ({usuario, setEjecutarConsulta})  => {
           <td className=" border-b border-gray-300 rounded-lg bg-white text-sm text-center text-gray-800">{usuario.name}</td>
           <td className=" border-b border-gray-300 rounded-lg bg-white text-sm text-center text-gray-800">{usuario.email}</td>
           <td className=" border-b border-gray-300 rounded-lg bg-white text-sm text-center text-gray-800">{usuario.rol}</td>
-          <td className= {usuario.estado === 'Activo'? 'relative inline-block m-4 px-6 py-2 leading-tight bg-green-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'
-          : usuario.estado=== 'Pendiente'?('relative inline-block m-4 px-3 py-2 leading-tight bg-yellow-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'
-          ):'relative inline-block m-4 px-5 py-2 leading-tight bg-red-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'}>{usuario.estado}</td>
+          <td className= {usuario.estado === 'Activo'? 'relative inline-block m-4 px-6 py-2 leading-tight bg-green-900 text-white text-center text-sm font-semibold opacity-80 rounded-full'
+          : usuario.estado=== 'Pendiente'?('relative inline-block m-4 px-3 py-2 leading-tight bg-yellow-600 text-white text-center text-sm font-semibold opacity-95 rounded-full'
+          ):'relative inline-block m-4 px-5 py-2 leading-tight bg-red-500 text-white text-center text-sm font-semibold opacity-95 rounded-full'}>{usuario.estado}</td>
           
         </>  
         )}

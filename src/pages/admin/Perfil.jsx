@@ -71,7 +71,7 @@ const Perfil = () => {
           <div className="text-gray-700 mt-0 mb-2 uppercase">
             <i className="fas fa-info-circle mr-2 text-md text-gray-500"></i>
             
-            <span className={userData.estado === 'Activo' ? 'relative inline-block m-4 px-2 py-2 leading-tight bg-green-500 text-white text-center text-sm font-semibold opacity-80 rounded-full':'relative inline-block m-4 px-3 py-2 leading-tight bg-yellow-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'}>{userData.estado}</span>
+            <span className={userData.estado === 'Activo' ? 'relative inline-block m-4 px-2 py-2 leading-tight bg-green-900 text-white text-center text-sm font-semibold opacity-95 rounded-full':'relative inline-block m-4 px-3 py-2 leading-tight bg-yellow-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'}>{userData.estado}</span>
           </div>
           
         </div>

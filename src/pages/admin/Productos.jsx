@@ -55,7 +55,7 @@ const Productos = () => {
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`shadow-md bg-gray-200 text-gray-600 font-bold p-2 rounded m-6  self-center hover:bg-gray-300`}>
+          className={`shadow-md fondo1 text-gray-200 font-bold p-2 rounded m-6  self-center hover:bg-gray-300`}>
           {textoBoton}
         </button>
         {/* </PrivateComponent> */}
@@ -116,30 +116,28 @@ const Productos = () => {
               <table className="tabla w-full">
                 <thead>
                   <tr>
-                    {/* <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-lg font-extrabold text-gray-600 uppercase tracking-wider w-20">
-                        <i class="fas fa-passport"></i>
-                    </th> */}
-                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                    
+                    <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
                         Código
                     </th>
-                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                    <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-32">
                         Producto
                     </th>
-                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                    <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
                         Cantidad
                     </th>
-                    <th class="px-3 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                    <th class="px-3 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-32">
                         Precio
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-32">
+                    <th class="px-5 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-32">
                         Estado
                     </th>
                     
-                    {/* <PrivateComponent roleList={['Administrador']}> */}
-                    <th class="px-5 py-3 border-b-2 border-gray-400 bg-gray-200 text-center text-xs font-extrabold text-gray-600 uppercase tracking-wider w-24">
+                    <PrivateComponent roleList={['Administrador']}>
+                    <th class="px-5 py-3 border-b-2 border-gray-400 fondo1 text-center text-xs font-extrabold text-gray-200 uppercase tracking-wider w-24">
                         Acciones
                     </th> 
-                    {/* </PrivateComponent> */}
+                    </PrivateComponent>
                   </tr>
                 </thead>
                 <tbody>
@@ -274,7 +272,7 @@ const FilaProductos = ({producto, setEjecutarConsulta})  => {
           <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{producto.nombre}</td>
           <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{producto.cantidad}</td>
           <td className=" border-b border-gray-300 rounded-lg bg-white text-md text-center text-gray-800">{producto.precio}</td>
-          <td className={producto.estado === 'Disponible'? 'relative inline-block m-4 px-4 py-2 leading-tight bg-green-500 text-white text-center text-sm font-semibold opacity-80 rounded-full':'relative inline-block m-4 px-2 py-0 leading-tight bg-red-500 text-white text-center text-sm font-semibold opacity-80 rounded-full'} >{producto.estado}</td>
+          <td className={producto.estado === 'Disponible'? 'relative inline-block m-4 px-4 py-2 leading-tight bg-green-900 text-white text-center text-sm font-semibold opacity-95 rounded-full':'relative inline-block m-4 px-2 py-0 leading-tight bg-red-500 text-white text-center text-sm font-semibold opacity-95 rounded-full'} >{producto.estado}</td>
       </>  
         )}
           <PrivateComponent roleList={['Administrador']}>
