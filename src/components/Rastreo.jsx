@@ -47,7 +47,14 @@ const Rastreo = ({setMostrarRas,pedi}) => {
                {pedi.vendedor}
               </p>
             </div>
+            <div>
+              <p class="text-gray-700 font-bold tracking-wider">Sede</p>
+              <p class="text-gray-400 text-xs">
+                {" "}
+               {pedi.sede}
+              </p>
 
+            </div>
             <span class="font-bold text-indigo-500 text-3xl mr-3">
               <i className="fas fa-hammer"></i>
             </span>
@@ -89,6 +96,14 @@ const Rastreo = ({setMostrarRas,pedi}) => {
                 {" "}
                {pedi.vendedor}
               </p>
+            </div>
+            <div>
+              <p class="text-gray-700 font-bold tracking-wider">Sede</p>
+              <p class="text-gray-400 text-xs">
+                {" "}
+               {pedi.sede}
+              </p>
+
             </div>
             <span className="font-bold text-yellow-500 text-3xl mr-3">
               <i className="fas fa-sync-alt"></i>
@@ -151,7 +166,16 @@ const Enviado = ({pedi}) => {
                 {" "}
                {pedi.vendedor}
               </p>
+            
       </div>
+      <div>
+              <p class="text-gray-700 font-bold tracking-wider">Sede</p>
+              <p class="text-gray-400 text-xs">
+                {" "}
+               {pedi.sede}
+              </p>
+
+            </div>
       <span class="font-bold text-green-500 text-3xl mr-3">
         <i className="fas fa-clipboard-check"></i>
       </span>
@@ -197,6 +221,14 @@ const Rechazado = ({pedi}) => {
                 {" "}
                {pedi.vendedor}
               </p>
+            </div>
+            <div>
+              <p class="text-gray-700 font-bold tracking-wider">Sede</p>
+              <p class="text-gray-400 text-xs">
+                {" "}
+               {pedi.sede}
+              </p>
+
             </div>
             <span class="font-bold text-pink-500 text-3xl mr-3">
               <i className="fas fa-times"></i>
