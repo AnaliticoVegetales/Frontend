@@ -312,7 +312,7 @@ const FilaPedidos = ({
         vendedor: infoNuevaPedido.vendedor,
         transportador: infoNuevaPedido.transportador,
         estado: infoNuevaPedido.estado,
-        total: infoNuevaPedido.total,
+        total: infoNuevaPedido.precio * infoNuevaPedido.cantidad,
       },
       (response) => {
         console.log("Pedido Editada", response.data);
@@ -384,7 +384,7 @@ const FilaPedidos = ({
                   producto: e.target.value,
                 })
               }
-              defaultValue={infoNuevaPedido.producto}
+              value={infoNuevaPedido.producto}
             >
               {listaProductos.map((p) => {
                 return (
@@ -493,7 +493,7 @@ const FilaPedidos = ({
                 className="bg-gray-50 border border-gray-600 p-1 rounded-lg m-1 w-full"
                 name="estado"
                 required
-                defaultValue={infoNuevaPedido.estado}
+                value={infoNuevaPedido.estado}
                 onChange={(e) =>
                   setInfoNuevaPedido({
                     ...infoNuevaPedido,
@@ -649,7 +649,7 @@ const FormularioCreacionPedidos = ({
         transportador: nuevaPedido.transportador,
         sede: nuevaPedido.sede,
         estado: "En Proceso",
-        total: nuevaPedido.cantidad * nuevaPedido.unidad,
+        total: nuevaPedido.cantidad * nuevaPedido.precio,
       },
       (response) => {
         console.log(response.data);
