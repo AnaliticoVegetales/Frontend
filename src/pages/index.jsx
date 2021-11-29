@@ -1,4 +1,5 @@
 import React from 'react';
+import {crearMensaje} from '../utils/api'
 
 //Imagenes
 import Vegetales from '../media/gabriel-jimenez-jin4W1HqgL4-unsplash.jpeg';
@@ -213,7 +214,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <section id="proyectos" className="text-gray-600 body-font">
+      <section id="productos" className="text-gray-600 body-font">
         <div className="container px-5 py-12 mx-auto">
         <h1 className='text-center pt-12 pb-20 text-4xl font-semibold text-gray-900'>Productos Destacados del Mes</h1>
           <div className="flex flex-wrap -m-4">
@@ -473,6 +474,8 @@ const Index = () => {
           
         </div>
       </section>
+
+      
       <section className="relative block py-24 lg:pt-0 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
@@ -544,4 +547,8 @@ const Index = () => {
   </div>;
 };
 
+
+
 export default Index;
+
+

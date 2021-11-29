@@ -138,6 +138,47 @@ export const eliminarPedido = async (id, successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
+// CRUD Mensajes
+export const obtenerMensajes = async (successCallback, errorCallback) => {
+  const options = {
+    method: 'GET',
+    url: `${baseURL}/mensajes/`,
+    headers: {
+      Authorization: getToken(),
+    },
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const crearMensaje = async (data, successCallback, errorCallback) => {
+  const options = {
+    method: 'POST',
+    url: `${baseURL}/mensajes/`,
+    headers: { 'Content-Type': 'application/json', Authorization: getToken() },
+    data,
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const editarMensaje = async (id, data, successCallback, errorCallback) => {
+  const options = {
+    method: 'PATCH',
+    url: `${baseURL}/mensajes/${id}/`,
+    headers: { 'Content-Type': 'application/json', Authorization: getToken() },
+    data,
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const eliminarMensaje = async (id, successCallback, errorCallback) => {
+  const options = {
+    method: 'DELETE',
+    url: `${baseURL}/mensajes/${id}/`,
+    headers: { 'Content-Type': 'application/json', Authorization: getToken() },
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
 // CRUD SEDES
 export const obtenerSedes = async (successCallback, errorCallback) => {
   const options = {
